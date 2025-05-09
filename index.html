@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ignitia – Galerie IA</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
+
+  <!-- CSS principal -->
+  <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
+
+  <!-- Préchargement de la police Orbitron -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Open Graph & Twitter Card -->
+  <meta property="og:title" content="Ignitia – Créations IA artistiques">
+  <meta property="og:description" content="Découvrez des créations visuelles générées par IA, art numérique futuriste.">
+  <meta property="og:image" content="https://ignitia-creative.netlify.app/assets/images/cosmomag.webp">
+  <meta property="og:url" content="https://ignitia-creative.netlify.app/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body>
+  <header>
+    <a href="index.html" class="logo-link">
+      <img src="assets/images/logo.png" alt="Ignitia Logo" class="logo-img">
+    </a>
+    <h1>Bienvenue sur Ignitia</h1>
+  </header>
+
+  <nav class="sticky-nav">
+    <a href="#galerie">Galerie IA</a>
+    <a href="#videos">Vidéos IA</a>
+    <a href="#soutenir">Soutenir</a>
+  </nav>
+
+  <main>
+    <section class="gallery" id="galerie">
+      <h2>Galerie IA</h2>
+      <div class="grid">
+        <img src="assets/images/cosmomag.webp" alt="Création IA 1" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="assets/images/phase5.webp" alt="Création IA 2" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="assets/images/phaseultime.webp" alt="Création IA 3" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="assets/images/cowcat.webp" alt="Création IA 4" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="assets/images/spartiate2.webp" alt="Spartiate 2" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="assets/images/lawestern.webp" alt="Western" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="assets/images/spartiatedecor.webp" alt="Décor Spartiate" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="assets/images/spartiatedecor2.webp" alt="Décor Spartiate 2" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="assets/images/spartiate.webp" alt="Spartiate" loading="lazy" onclick="openLightbox(this.src)">
+      </div>
+    </section>
+
+    <section class="gallery" id="videos">
+      <h2>Vidéos IA</h2>
+      <div class="grid">
+        <video controls width="300" src="assets/videos/cowcatsaloon.mp4" loading="lazy"></video>
+        <p>Animation IA — Cowcat Saloon</p>
+      </div>
+    </section>
+
+    <section class="monetisation" id="soutenir">
+      <h2>Soutenir mon travail</h2>
+      <button onclick="window.open('https://www.paypal.com/donate','_blank')">Faire un don</button>
+    </section>
+  </main>
+
+  <div class="lightbox-overlay" id="lightbox">
+    <span class="close-lightbox" onclick="closeLightbox()">✖</span>
+    <img id="lightbox-img" alt="Image agrandie">
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+
+  <footer>
+    <p>&copy; 2025 Ignitia</p>
+  </footer>
+</body>
+</html>
