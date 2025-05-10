@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Ignitia CMS</title>
 
-  <!-- Netlify Identity to handle login/signup -->
+  <!-- 1) Netlify Identity widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <!-- Netlify CMS -->
-  <script src="https://unpkg.com/netlify-cms@2.10.0/dist/netlify-cms.js"></script>
+
+  <!-- 2) Netlify CMS -->
+  <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
 </head>
 <body>
-  <!-- 1) LE CONTAINER QUI MANquait -->
+  <!-- 3) Conteneur CMS -->
   <div id="nc-root"></div>
 
-  <!-- 2) Initialisation du widget Identity -->
   <script>
+    // Forcer l'ouverture du widget Netlify Identity
     if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', user => {
+        if (!user) {
+          window.netlifyIdentity.open();
+        }
+      });
+      // Après connexion, recharger /admin/ pour afficher le CMS
+      window.netlifyIdentity.on('login', () => {
+        document.location.href = '/admin/';
+      });
       window.netlifyIdentity.init();
     }
   </script>
 </body>
 </html>
-
-
-
 
 
