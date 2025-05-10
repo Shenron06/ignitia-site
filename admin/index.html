@@ -1,28 +1,23 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Ignitia CMS</title>
-
-  <!-- 1) Le widget Netlify Identity (obligatoire pour l'inscription) -->
+  <!-- 1. Netlify CMS -->
+  <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
+  <!-- 2. Netlify Identity widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-  <!-- 2) Le script principal de Netlify CMS -->
-  <script src="https://unpkg.com/netlify-cms@2.10.0/dist/netlify-cms.js"></script>
 </head>
 <body>
-  <!-- pas besoin d’autre balisage, Netlify-CMS injecte tout -->
+  <!-- l’interface CMS va se greffer ici -->
 
-  <!-- 3) (Optionnel) ouvrir automatiquement la modale d'inscription si pas loggué -->
   <script>
+    // Initialise Netlify Identity
     if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) window.netlifyIdentity.open("login"); 
-      });
-      // initialise le widget
-      window.netlifyIdentity.init();
+      window.netlifyIdentity.init()
     }
   </script>
 </body>
 </html>
+
 
