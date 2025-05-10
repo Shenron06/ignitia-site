@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <title>Ignitia CMS</title>
-  <!-- 1) Netlify Identity: must load before Netlify CMS -->
+
+  <!-- 1. Netlify Identity widget (doit être chargé AVANT netlify-cms) -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <!-- 2) Netlify CMS -->
+
+  <!-- 2. Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
 </head>
 <body>
-  <!-- 3) CMS root container -->
+  <!-- 3. Conteneur obligatoire pour Netlify CMS -->
   <div id="nc-root"></div>
 
-  <!-- 4) Initialize Identity and show login/signup UI -->
+  <!-- 4. Initialisation du widget Identity -->
   <script>
     if (window.netlifyIdentity) {
-      // On init, if no user, open the login (with signup option)
-      window.netlifyIdentity.on('init', user => {
-        if (!user) {
-          window.netlifyIdentity.open('login');
-        }
+      // Recharge la page après connexion pour afficher le CMS
+      window.netlifyIdentity.on('login', () => {
+        document.location.reload();
       });
       window.netlifyIdentity.init();
     }
